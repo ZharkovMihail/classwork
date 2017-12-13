@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int n;
+	int a;
+	int a1;
+	int h;
+	int flag=0;
+	cin >> n;
+	int* arr = new int[n];
+	//cin>>arr[0];
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		a1 = a;
+		if (arr[0] > a) {
+			flag = 1;
+			h = arr[ 0];
+			arr[0] = a;
+			for (int k = 1; k < i+1 ; k++) {
+				a = arr[k];
+				arr[k] = h;
+				h = a;
+			}
+		}else {
+		for (int j = 0; j <= i; j++) {		
+				if ((arr[j] < a && (arr[j + 1] > a))) {
+					flag = 1;
+					h = arr[j + 1];
+					arr[j + 1] = a;
+					for (int k = j + 2; k < i + 1; k++) {
+						a = arr[k];
+						arr[k] = h;
+						h = a;
+					}
+				}
+			}
+			}
+		    if (flag == 0) {
+				arr[i] = a1;
+			}
+				flag = 0;	
+			for (int m = 0; m < i+1; m++) {
+				cout << arr[m];
+			}
+			cout << endl;
+		}
+	system("pause");
+	return 0;
+	}
