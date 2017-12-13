@@ -1,0 +1,80 @@
+#include <iostream> 
+#include<string> 
+
+using namespace std;
+
+struct node {
+	int data;
+	string inf;
+	
+};
+int charToInt(char c) {
+	return c - '0';
+};
+node* get(string st, string blabla) {
+	string part;
+	string part1;	
+		node* temp = new node;
+		for (int i = 0; i <= 1; i++) {
+			part = st[i];
+			part1 = part1 + part;
+		}
+		for (int i = 4 - 1; i <= 5 - 1; i++) {
+			part = st[i];
+			part1 = part1 + part;
+		}
+		for (int i = 7 - 1; i <= 10 - 1; i++) {
+			part = st[i];
+			part1 = part1 + part;
+		}
+		
+		char a1;
+		char a2=0;
+		for (int i = 0; i < 8; i++) {
+			 a1 = part1[i];
+			 a2 = a2+a1 ;
+		}
+		temp->data = atoi(part1.c_str());
+	temp->inf = blabla;
+	return temp;
+}
+
+
+int main() {
+	int v;	
+	string st;	
+	string st2;
+	int x;
+	cin >> x;
+	int *arr = new int[x];
+	for (int i = 0; i < x; i++) {
+		cin >> st;
+		cin >> st2;
+		node* temp = new node;
+		temp = get(st, st2);
+		arr[i] = temp->data;
+	}
+	cin >> v;
+	for (int i = 0; i < v; i++) {
+		node* temp1 = new node;
+		cin >> st;
+		cin >> st2;
+		temp1 = get(st, st2);
+		int flag=0;
+		for (int j = 0; j < x; j++) {
+			if (arr[j] == temp1->data) {
+				flag=1;
+			}
+			
+		}
+		if (flag == 1) {
+			cout << "true)))))))))))))))))))))))))";
+		}
+		else {
+			cout << "false";
+		}
+		cout << endl;
+	}
+	system("pause");
+	return 0;
+}
